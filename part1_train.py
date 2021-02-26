@@ -15,7 +15,7 @@ class train_cnn():
         self.train_loss_history = []
         self.val_loss_history = []
         if CONFIG["GPU"]:
-            self.device = torch.device("cuda")
+            self.device = model.device
             self.model = self.model.to(self.device)
 
         self.fit()
