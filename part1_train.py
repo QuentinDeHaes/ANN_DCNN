@@ -32,6 +32,10 @@ class train_cnn():
             temp_loss = 0
             itr = 0
             for i, (xb, yb) in enumerate(self.data.train_loader):
+                if CONFIG["GPU"]:
+                    xb = xb.to(self.device)
+                    yb = yb.to(self.device)
+
                 temp_loss += self.loss_batch(xb, yb)
                 itr = i
 
