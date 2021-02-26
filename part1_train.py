@@ -45,6 +45,9 @@ class train_cnn():
                 valid_loss = 0
                 itr = 0
                 for j, (xb, yb) in enumerate(self.data.val_loader):
+                    if CONFIG["GPU"]:
+                        xb = xb.to(self.device)
+                        yb = yb.to(self.device)
                     valid_loss += self.loss(self.model(xb), yb)
                     itr = j
                 self.val_loss_history.append(valid_loss.item() / itr)
