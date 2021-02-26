@@ -7,7 +7,7 @@ class cnn(nn.Module):
         super().__init__()
         self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=0)
         self.conv2 = nn.Conv2d(16, 16, kernel_size=3, stride=1, padding=0)
-        self.fc = nn.Linear(9216, 15)
+        self.fc = nn.Linear(576, 15)
 
     def forward(self, x):
         x = F.relu(self.conv1(x))

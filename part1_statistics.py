@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
-def plot_trainval_loss(train, val):
+
+def plot_trainval_loss(train, val) -> None:
     plt.plot(train, "ro--", linewidth=2, markersize=12, label="Train Loss")
     plt.plot(val, color="green", marker="o", linestyle="dashed", linewidth=2, markersize=12, label="Validating Loss")
     plt.xlabel("Epoch")
