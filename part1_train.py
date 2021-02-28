@@ -57,6 +57,7 @@ class train_cnn():
         loss = self.loss(self.model(xb), yb)
         if self.optim is not None:
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), 0.5)
             self.optim.step()
             self.optim.zero_grad()
         return loss
