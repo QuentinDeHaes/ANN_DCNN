@@ -57,6 +57,8 @@ class train_cnn():
         loss = self.loss(self.model(xb), yb)
         if self.optim is not None:
             loss.backward()
+            # https://discuss.pytorch.org/t/crossentropyloss-loss-becomes-nan-after-several-iteration/73530/2
+            # link above says this should fix having nans, and it does
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), 0.5)
             self.optim.step()
             self.optim.zero_grad()
