@@ -18,7 +18,6 @@ class loadmodel:
         print(f"{total_trainable_params:,} training parameters.")
         if CONFIG["GPU"]:
             self.device = torch.device("cuda")
-            self.model= self.model.to(self.device)
             self.model.device = self.device
 
     def print_params(self):
