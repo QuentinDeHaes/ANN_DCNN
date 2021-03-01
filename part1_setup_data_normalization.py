@@ -6,7 +6,7 @@ from PIL import Image
 
 
 class load_data():
-    def __init__(self) -> None:
+    def __init__(self, batchsize=1) -> None:
         base_dir = "./"
         traindir = "./data/15SceneData/train"
         valdir = "./data/15SceneData/test"
@@ -26,5 +26,5 @@ class load_data():
             ])
         val_dataset = datasets.ImageFolder(valdir, transform=val_data_transform)
 
-        self.train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=1, shuffle=True)
-        self.val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1, shuffle=False)
+        self.train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batchsize, shuffle=True)
+        self.val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batchsize, shuffle=False)

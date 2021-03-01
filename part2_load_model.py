@@ -10,12 +10,12 @@ class loadmodel:
         num_ftrs = self.model.classifier[6].in_features
         self.model.classifier[6] = nn.Linear(num_ftrs, classes)
         # print(self.model)
-        total_params = sum(p.numel() for p in self.model.parameters())
-        print(f"{total_params:,} total parameters.")
-
-        total_trainable_params = sum(
-            p.numel() for p in self.model.parameters() if p.requires_grad)
-        print(f"{total_trainable_params:,} training parameters.")
+        # total_params = sum(p.numel() for p in self.model.parameters())
+        # print(f"{total_params:,} total parameters.")
+        #
+        # total_trainable_params = sum(
+        #     p.numel() for p in self.model.parameters() if p.requires_grad)
+        # print(f"{total_trainable_params:,} training parameters.")
         if CONFIG["GPU"]:
             self.device = torch.device("cuda")
             self.model.device = self.device
