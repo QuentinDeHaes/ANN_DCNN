@@ -1,8 +1,7 @@
-from part1_setup_data import load_data
+from part1_setup_data_normalization import load_data
 from part1_cnn import cnn
 from part1_train import train_cnn
 from part1_statistics import plot_trainval_loss
-from part2_load_model import loadmodel
 """
 load dataset
 """
