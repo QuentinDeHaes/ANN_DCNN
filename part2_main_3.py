@@ -10,7 +10,7 @@ network = loadmodel(15)
 
 
 # source : https://stackoverflow.com/questions/62523912/how-to-freeze-selected-layers-of-a-model-in-pytorch
-for i in range (30):
+for i in range (len(network.model.features)):
   for param in network.model.features[i].parameters():
       param.requires_grad = False
 
