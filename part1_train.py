@@ -24,14 +24,14 @@ class train_cnn():
         return F.cross_entropy
 
     def optim_function(self):
-        return optim.SGD(self.model.parameters(), lr=0.002, momentum=0.9)
+        return optim.SGD(self.model.parameters(), lr=0.002, momentum=0.9) #changed the learning rate to 0.002
 
     def fit(self) -> None:
         epochs = 20
         for epoch in range(epochs):
             temp_loss = 0
             itr = 0
-            self.model.train()
+            self.model.train() #added the method to put the model back in training mode
             for i, (xb, yb) in enumerate(self.data.train_loader):
                 if CONFIG["GPU"]:
                     xb = xb.to(self.device)
